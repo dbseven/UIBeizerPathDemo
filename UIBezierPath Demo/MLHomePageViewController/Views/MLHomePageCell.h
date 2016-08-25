@@ -30,11 +30,11 @@ typedef void(^MLHomePageCellDidClick)(MLHomePageCell *cell, MLViewControllerJump
 /**
  *  Begin Animation
  */
-- (void) beginAnimationWithAnimation;
+- (void) beginAnimation;
 
 /**
  *  Stop Animation
  */
-- (void) stopAnimationWithAnimation;
+- (void) stopAnimation;
 
 @end

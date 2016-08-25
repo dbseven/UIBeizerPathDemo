@@ -10,6 +10,7 @@
 #import "MLBaseCell+Shaking.h"
 #import "MLViewControllerJumpModel.h"
 
+static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCell_Animation_NormalOverKey";
 
 @interface MLHomePageCell ()
 {
@@ -51,6 +52,14 @@
 #pragma mark Dealloc
 - (void) dealloc {
     NSLog(@"%@: Dealloced", [self class]);
+    
+    [[NSNotificationCenter defaultCenter] removeObserver: self];
+    [self.keyFrameAnimation_first setValue: @(YES)
+                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
+    [self.keyFrameAnimation_second setValue: @(YES)
+                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
+    [self.ml_animationImageView_first.layer removeAllAnimations];
+    [self.ml_animationImageView_second.layer removeAllAnimations];
 }
 
 
@@ -65,7 +74,7 @@
     
     // 0. 半径 和 注册通知
     [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(stopAnimationNotificationAction)
+                                             selector: @selector(stopAnimation)
                                                  name: @"ml_stopAnimation"
                                                object: nil];
     _r = 20;
@@ -90,6 +99,8 @@
 #pragma mark Prepare Reuse
 - (void) prepareForReuse {
     
+    [super prepareForReuse];
+    
     // 1. Setup Cell Background View
     [self setupCellBackgroundView];
 }
@@ -105,15 +116,14 @@
 #pragma mark Set Jump Model
 - (void) setJumpModel:(MLViewControllerJumpModel *)jumpModel {
     
-    // Animation
-    if (self.jumpModel.isSelected) {
-        [self beginAnimationWithAnimation];
-    } else {
-        [self stopAnimationWithAnimation];
-    }
-    
-    if (jumpModel == _jumpModel) return;
     _jumpModel = jumpModel;
+    
+    // Animation
+    if (jumpModel.isSelected) {
+        [self beginAnimation];
+    } else {
+        [self stopAnimation];
+    }
     
     // Set Title
     self.ml_titleLabel.text = jumpModel.title;
@@ -199,10 +209,13 @@
         CGFloat time5 = (lineH + lineV*2 + arc*2) / distance;
         
         _keyFrameAnimation_first = [CAKeyframeAnimation animationWithKeyPath: @"position"];
+        _keyFrameAnimation_first.removedOnCompletion = NO;
+        _keyFrameAnimation_first.fillMode = kCAFillModeForwards;
         _keyFrameAnimation_first.path = self.bezierPath_first.CGPath;
         _keyFrameAnimation_first.keyTimes = @[@(0.0), @(0.0), @(time1), @(time2), @(time3), @(time3), @(time4), @(time5), @(1.0)];
         _keyFrameAnimation_first.duration = 6.4f;
         _keyFrameAnimation_first.repeatCount = HUGE_VALF;
+        _keyFrameAnimation_first.delegate = self;
     }
     
     return _keyFrameAnimation_first;
@@ -229,6 +242,7 @@
         _keyFrameAnimation_second.keyTimes = @[@(0.0), @(0.0), @(time1), @(time2), @(time3), @(time3), @(time4), @(time5), @(1.0)];
         _keyFrameAnimation_second.duration = 6.4f;
         _keyFrameAnimation_second.repeatCount = HUGE_VALF;
+        _keyFrameAnimation_second.delegate = self;
     }
     
     return _keyFrameAnimation_second;
@@ -324,45 +338,53 @@
 #pragma mark - Public Methods
 #pragma mark -
 #pragma mark Begin Animation
-- (void) beginAnimationWithAnimation {
+- (void) beginAnimation {
     
     // 1. 判断是否需要开启动画
-    if (_isAnimating) return;
-    
     
     // 2. 发送通知, 取消其他动画
     [[NSNotificationCenter defaultCenter] postNotificationName: @"ml_stopAnimation"
                                                         object: nil];
-    _isAnimating = YES;
     
     // 2. 设置选中模式
     self.jumpModel.selected = YES;
     
-    // 3. 添加动画
-    [self.ml_animationImageView_first.layer  addAnimation: self.keyFrameAnimation_first
-                                                   forKey: @"ml_animationImageView_first"];
-    [self.ml_animationImageView_second.layer addAnimation: self.keyFrameAnimation_second
-                                                   forKey: @"ml_animationImageView_second"];
-    [self.ml_animationImageView_first startAnimating];
-    [self.ml_animationImageView_second startAnimating];
+    self.contentView.backgroundColor = [UIColor orangeColor];
     
-    // 4. 开始动画
-    self.ml_animationImageView_first.alpha = 1.0;
-    self.ml_animationImageView_second.alpha = 1.0;
+//    // 3. 添加动画
+//    [self.ml_animationImageView_first.layer  addAnimation: self.keyFrameAnimation_first
+//                                                   forKey: @"ml_animationImageView_first"];
+//    [self.ml_animationImageView_second.layer addAnimation: self.keyFrameAnimation_second
+//                                                   forKey: @"ml_animationImageView_second"];
+//    [self.keyFrameAnimation_first setValue: @(NO)
+//                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
+//    [self.keyFrameAnimation_second setValue: @(NO)
+//                                     forKey: kMLHomePageCell_Animation_NormalOverKey];
+//    [self.ml_animationImageView_first startAnimating];
+//    [self.ml_animationImageView_second startAnimating];
+//    
+//    // 4. 开始动画
+//    self.ml_animationImageView_first.alpha = 1.0;
+//    self.ml_animationImageView_second.alpha = 1.0;
 }
 
 #pragma mark Stop Animation
-- (void) stopAnimationWithAnimation {
+- (void) stopAnimation {
     
-    if (!_isAnimating) return;
-    _isAnimating = NO;
     
-    self.ml_animationImageView_first.alpha = 0.0f;
-    self.ml_animationImageView_second.alpha = 0.0f;
-    [self.ml_animationImageView_first.layer removeAllAnimations];
-    [self.ml_animationImageView_second.layer removeAllAnimations];
-    [self.ml_animationImageView_first stopAnimating];
-    [self.ml_animationImageView_second stopAnimating];
+    self.contentView.backgroundColor = [UIColor clearColor];
+    
+//    self.ml_animationImageView_first.alpha = 0.0f;
+//    self.ml_animationImageView_second.alpha = 0.0f;
+//    
+//    [self.keyFrameAnimation_first setValue: @(YES)
+//                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
+//    [self.keyFrameAnimation_second setValue: @(YES)
+//                                     forKey: kMLHomePageCell_Animation_NormalOverKey];
+//    [self.ml_animationImageView_first.layer removeAllAnimations];
+//    [self.ml_animationImageView_second.layer removeAllAnimations];
+//    [self.ml_animationImageView_first stopAnimating];
+//    [self.ml_animationImageView_second stopAnimating];
 }
 
 #pragma mark Setup Cell Background View
@@ -370,7 +392,7 @@
     
     // 0. BackgroundView
     if (!self.viewCellBackground.layer.mask) {
-        self.viewCellBackground.frame = CGRectMake(_marginLeft, _marginTop, [UIScreen mainScreen].bounds.size.width - _marginRight, [[self class] cellHeight] - _marginBottom);
+        self.viewCellBackground.frame = CGRectMake(_marginLeft, _marginTop, [UIScreen mainScreen].bounds.size.width - _marginRight - _marginLeft, [[self class] cellHeight] - _marginBottom);
         
         // 1. CAShapeLayer
         CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -381,13 +403,12 @@
     }
 }
 
-#pragma mark - Action Methods
-#pragma mark -
-#pragma mark NotificationMethod_StopAnimation
-- (void) stopAnimationNotificationAction {
-    [self stopAnimationWithAnimation];
+- (void)ml_animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    
+    if (![[anim valueForKey: kMLHomePageCell_Animation_NormalOverKey] boolValue]) {
+        [self beginAnimation];
+    }
 }
-
 
 @end
 

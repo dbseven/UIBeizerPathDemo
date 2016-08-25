@@ -78,13 +78,15 @@
     
     // 1. TableView
     [self.view addSubview: self.tableView];
+    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    _tableView.scrollIndicatorInsets = _tableView.contentInset;
     
     // 2. Background Image View
     [self configureBackgroundImageView];
 }
 
 #pragma mark Configure Navigation Bar
-- (void)configureNavigationBar {
+- (void) configureNavigationBar {
     [super configureNavigationBar];
     
     // 1. Title
@@ -112,6 +114,7 @@
         _tableView.tableFooterView = [UIView new];
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         _tableView.scrollIndicatorInsets = _tableView.contentInset;
+        [_tableView setContentOffset: CGPointMake(0, -64)];
     }
     
     return _tableView;
@@ -154,7 +157,9 @@
     __weak __typeof(&*self)weakSelf = self;
     MLHomePageCell *cell = [MLHomePageCell cellInTableView: tableView
                                            reuseIdentifier: NSStringFromClass([MLHomePageCell class])];
+    
     cell.jumpModel = [[self.homePageModel.list objectAtIndex: indexPath.section].list objectAtIndex: indexPath.row];
+    
     cell.didClick = ^(MLHomePageCell *cell, MLViewControllerJumpModel *jumpModel){
         [weakSelf jumpViewControllerWithJumpModel: jumpModel];
     };
@@ -174,7 +179,7 @@
     
     MLHomePageCell *cell = [self.tableView cellForRowAtIndexPath: indexPath];
     if ([cell shake]) {
-        [cell beginAnimationWithAnimation];
+        [cell beginAnimation];
     }
 }
 
