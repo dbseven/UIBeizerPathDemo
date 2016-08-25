@@ -62,7 +62,7 @@
 #pragma mark Configure the backgroundImageView
 - (void) configureBackgroundImageView {
     
-    [self configureBackgroundImageViewWithImage: [UIImage imageNamed: @"BackgroundImage_002"]];
+    [self configureBackgroundImageViewWithImage: [UIImage imageNamed: @"BackgroundImage_001"]];
 }
 
 #pragma mark Configure the backgroundImageView with a image

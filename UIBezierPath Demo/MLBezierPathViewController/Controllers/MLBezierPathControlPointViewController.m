@@ -284,6 +284,8 @@
     [self.bezierPath removeAllPoints];
     [self.dashedLineBezierPath_BeginPoint removeAllPoints];
     [self.dashedLineBezierPath_EndPoint removeAllPoints];
+    self.dashedLineShapeLayer_BeginPoint.path = nil;
+    self.dashedLineShapeLayer_EndPoint.path = nil;
     
     // 2. 移动到起始点
     [self.bezierPath moveToPoint: self.beginPoint.controlPoint];
