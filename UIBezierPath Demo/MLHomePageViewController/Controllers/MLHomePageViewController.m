@@ -7,6 +7,8 @@
 //
 
 #import "MLHomePageViewController.h"
+#import "MLBaseViewController+Constructor.h"
+#import "MLBaseViewController+NavigationBar.h"
 #import "MLHomePageModel.h"
 #import "MLHomePageCell.h"
 #import <Mantle/Mantle.h>
@@ -40,6 +42,9 @@
     
     // 1. Configure UI
     [self configureUI];
+    
+    // 2. Configure NavigationBar
+    [self configureNavigationBar];
 }
 
 #pragma mark View Will Appear
@@ -73,6 +78,14 @@
     
     // 2. Background Image View
     [self configureBackgroundImageView];
+}
+
+#pragma mark Configure Navigation Bar
+- (void)configureNavigationBar {
+    [super configureNavigationBar];
+    
+    // 1. Title
+    [self addNavigationTitle: @"CAShapeLayer Demo"];
 }
 
 

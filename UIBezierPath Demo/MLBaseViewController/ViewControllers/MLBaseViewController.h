@@ -17,14 +17,6 @@
 /** The imageView which filled the view controller's view */
 @property (nonatomic, strong) UIImageView *backgroundImageView;
 
-
-/**
- *  Factory method
- *
- *  @return A subclass of MLBaseViewController
- */
-+ (__kindof MLBaseViewController *) viewController;
-
 /**
  *  Configure the backgroundImageView.
  */

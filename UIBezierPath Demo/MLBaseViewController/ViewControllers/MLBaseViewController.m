@@ -7,21 +7,13 @@
 //
 
 #import "MLBaseViewController.h"
+#import "MLBaseViewController+NavigationBar.h"
 
-@interface MLBaseViewController ()
+@interface MLBaseViewController () <UINavigationControllerDelegate>
 
 @end
 
 @implementation MLBaseViewController
-#pragma mark - Initialize Methods
-#pragma mark -
-#pragma mark Factory Method
-+ (MLBaseViewController *)viewController {
-    
-    return [[[self class] alloc] init];
-}
-
-
 #pragma mark - UIViewController Life Circle
 #pragma mark -
 #pragma mark View Did Load
@@ -30,6 +22,12 @@
     
     // 1. Background Color
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    // 2. Set navigationController' delegate to self
+    self.navigationController.delegate = self;
+    
+    // 3. Configure NavigationBar
+    [self configureNavigationBar];
 }
 
 
@@ -64,7 +62,7 @@
 #pragma mark Configure the backgroundImageView
 - (void) configureBackgroundImageView {
     
-    [self configureBackgroundImageViewWithImage: [UIImage imageNamed: @"BackgroundImage_001"]];
+    [self configureBackgroundImageViewWithImage: [UIImage imageNamed: @"BackgroundImage_002"]];
 }
 
 #pragma mark Configure the backgroundImageView with a image
@@ -90,6 +88,29 @@
 
 #pragma mark Input a coordinate for the controlPointView.
 - (void) inputCoordinate:(MLControlPointView *)controlPointView {
-    NSLog(@"%@: %s", [self class], __FUNCTION__);}
+    NSLog(@"%@: %s", [self class], __FUNCTION__);
+}
+
+#pragma mark Whether need Navigation Bar Hidden
+- (BOOL) needHiddenBarInViewController:(UIViewController *)viewController {
+    
+    BOOL needHideNaivgaionBar = NO;
+    
+    if (![viewController isKindOfClass: [MLBaseViewController class]]) {
+        needHideNaivgaionBar = YES;
+    }
+    
+    return needHideNaivgaionBar;
+}
+
+#pragma mark - UINaivgationController Delegate
+#pragma mark -
+#pragma mark Will Show ViewController
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    [self.navigationController setNavigationBarHidden: [self needHiddenBarInViewController: viewController]
+                                             animated: animated];
+}
+
 
 @end

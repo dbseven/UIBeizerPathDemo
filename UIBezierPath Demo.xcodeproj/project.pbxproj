@@ -14,6 +14,8 @@
 		9B0549881D6EA79D00433AB7 /* MLBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549871D6EA79D00433AB7 /* MLBaseModel.m */; };
 		9B05498B1D6EA7B700433AB7 /* MLBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B05498A1D6EA7B700433AB7 /* MLBaseCell.m */; };
 		9B05498E1D6EAF6F00433AB7 /* MLHomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B05498D1D6EAF6F00433AB7 /* MLHomePageCell.m */; };
+		9B0549911D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549901D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m */; };
+		9B0549941D6EBDE400433AB7 /* MLBaseViewController+Constructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549931D6EBDE400433AB7 /* MLBaseViewController+Constructor.m */; };
 		9B25E5991D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5921D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m */; };
 		9B25E59A1D6E8D4000A9AFF0 /* MLControlPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5951D6E8D4000A9AFF0 /* MLControlPointView.m */; };
 		9B25E59F1D6E91F700A9AFF0 /* MLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E59E1D6E91F700A9AFF0 /* MLBaseViewController.m */; };
@@ -63,6 +65,10 @@
 		9B05498A1D6EA7B700433AB7 /* MLBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBaseCell.m; sourceTree = "<group>"; };
 		9B05498C1D6EAF6F00433AB7 /* MLHomePageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLHomePageCell.h; sourceTree = "<group>"; };
 		9B05498D1D6EAF6F00433AB7 /* MLHomePageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLHomePageCell.m; sourceTree = "<group>"; };
+		9B05498F1D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLBaseViewController+NavigationBar.h"; sourceTree = "<group>"; };
+		9B0549901D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLBaseViewController+NavigationBar.m"; sourceTree = "<group>"; };
+		9B0549921D6EBDE400433AB7 /* MLBaseViewController+Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLBaseViewController+Constructor.h"; sourceTree = "<group>"; };
+		9B0549931D6EBDE400433AB7 /* MLBaseViewController+Constructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLBaseViewController+Constructor.m"; sourceTree = "<group>"; };
 		9B25E5911D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBezierPathControlPointViewController.h; sourceTree = "<group>"; };
 		9B25E5921D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBezierPathControlPointViewController.m; sourceTree = "<group>"; };
 		9B25E5941D6E8D4000A9AFF0 /* MLControlPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLControlPointView.h; sourceTree = "<group>"; };
@@ -230,6 +236,10 @@
 			children = (
 				9B25E59D1D6E91F700A9AFF0 /* MLBaseViewController.h */,
 				9B25E59E1D6E91F700A9AFF0 /* MLBaseViewController.m */,
+				9B05498F1D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.h */,
+				9B0549901D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m */,
+				9B0549921D6EBDE400433AB7 /* MLBaseViewController+Constructor.h */,
+				9B0549931D6EBDE400433AB7 /* MLBaseViewController+Constructor.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -495,11 +505,13 @@
 				9B0549831D6EA1F000433AB7 /* MLHomePageSectionModel.m in Sources */,
 				9B25E5991D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m in Sources */,
 				9B05497D1D6EA0EB00433AB7 /* MLViewControllerJumpModel.m in Sources */,
+				9B0549911D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m in Sources */,
 				9B25E59A1D6E8D4000A9AFF0 /* MLControlPointView.m in Sources */,
 				9B0549761D6E9B5B00433AB7 /* MLHomePageViewController.m in Sources */,
 				9B0549881D6EA79D00433AB7 /* MLBaseModel.m in Sources */,
 				9BD9FFB11D6D9E2C00F9A691 /* AppDelegate.m in Sources */,
 				9B05498B1D6EA7B700433AB7 /* MLBaseCell.m in Sources */,
+				9B0549941D6EBDE400433AB7 /* MLBaseViewController+Constructor.m in Sources */,
 				9B05498E1D6EAF6F00433AB7 /* MLHomePageCell.m in Sources */,
 				9BD9FFAE1D6D9E2C00F9A691 /* main.m in Sources */,
 			);

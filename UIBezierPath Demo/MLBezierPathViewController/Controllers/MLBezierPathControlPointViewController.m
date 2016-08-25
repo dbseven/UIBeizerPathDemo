@@ -7,6 +7,7 @@
 //
 
 #import "MLBezierPathControlPointViewController.h"
+#import "MLBaseViewController+NavigationBar.h"
 
 @interface MLBezierPathControlPointViewController ()
 
@@ -51,6 +52,9 @@
     
     // 2. Configure Bezier Path
     [self configureBezierPath];
+    
+    // 3. Configure NavigationBar
+    [self configureNavigationBar];
 }
 
 
@@ -206,6 +210,13 @@
     [self.view addSubview: self.addButton];
 }
 
+#pragma mark Configure NavigationBar
+- (void) configureNavigationBar {
+    [super configureNavigationBar];
+    
+    // 1. 添加标题
+    [self addNavigationTitle: @"UIBezierPath ControlPoint"];
+}
 
 #pragma mark - Actions
 #pragma mark -
