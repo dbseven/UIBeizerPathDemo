@@ -14,6 +14,29 @@
 /** Control Pointes: all controlPoints, in some view controllers, this array does not contain the beginPoint and the endPoint, such as 'MLBezierPathControlPointViewController' */
 @property (nonatomic, strong) NSMutableArray<MLControlPointView *> *controlPoints;
 
+/** The imageView which filled the view controller's view */
+@property (nonatomic, strong) UIImageView *backgroundImageView;
+
+
+/**
+ *  Factory method
+ *
+ *  @return A subclass of MLBaseViewController
+ */
++ (__kindof MLBaseViewController *) viewController;
+
+/**
+ *  Configure the backgroundImageView.
+ */
+- (void) configureBackgroundImageView;
+
+/**
+ *  Configure the backgroundImageView with a image.
+ *
+ *  @param image the image in backgroundImageView.
+ */
+- (void) configureBackgroundImageViewWithImage:(UIImage *)image;
+
 /**
  *  Configure UI. 
  *  Note: SubClass Override Method, In BaseViewController, this method is only implement in the .m file but without doing anything;

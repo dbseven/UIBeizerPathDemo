@@ -13,12 +13,25 @@
 @end
 
 @implementation MLBaseViewController
+#pragma mark - Initialize Methods
+#pragma mark -
+#pragma mark Factory Method
++ (MLBaseViewController *)viewController {
+    
+    return [[[self class] alloc] init];
+}
+
+
 #pragma mark - UIViewController Life Circle
 #pragma mark -
 #pragma mark View Did Load
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 1. Background Color
+    self.view.backgroundColor = [UIColor whiteColor];
 }
+
 
 #pragma mark - Lazy Load
 #pragma mark -
@@ -33,8 +46,33 @@
     return _controlPoints;
 }
 
+#pragma mark Lazy Background Image View
+- (UIImageView *) backgroundImageView {
+    
+    if (!_backgroundImageView) {
+        _backgroundImageView = [[UIImageView alloc] initWithFrame: self.view.bounds];
+        [self.view insertSubview: _backgroundImageView
+                         atIndex: 0];
+    }
+    
+    return _backgroundImageView;
+}
+
+
 #pragma mark - Public Methods
 #pragma mark -
+#pragma mark Configure the backgroundImageView
+- (void) configureBackgroundImageView {
+    
+    [self configureBackgroundImageViewWithImage: [UIImage imageNamed: @"BackgroundImage_001"]];
+}
+
+#pragma mark Configure the backgroundImageView with a image
+- (void) configureBackgroundImageViewWithImage:(UIImage *)image {
+    
+    self.backgroundImageView.image = image;
+}
+
 #pragma mark Configure UI.
 - (void) configureUI {
     NSLog(@"%@: %s", [self class], __FUNCTION__);
