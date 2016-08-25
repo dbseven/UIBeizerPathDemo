@@ -16,6 +16,7 @@
 		9B05498E1D6EAF6F00433AB7 /* MLHomePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B05498D1D6EAF6F00433AB7 /* MLHomePageCell.m */; };
 		9B0549911D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549901D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m */; };
 		9B0549941D6EBDE400433AB7 /* MLBaseViewController+Constructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549931D6EBDE400433AB7 /* MLBaseViewController+Constructor.m */; };
+		9B0549971D6EF08C00433AB7 /* MLBaseCell+Shaking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549961D6EF08C00433AB7 /* MLBaseCell+Shaking.m */; };
 		9B25E5991D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5921D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m */; };
 		9B25E59A1D6E8D4000A9AFF0 /* MLControlPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5951D6E8D4000A9AFF0 /* MLControlPointView.m */; };
 		9B25E59F1D6E91F700A9AFF0 /* MLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E59E1D6E91F700A9AFF0 /* MLBaseViewController.m */; };
@@ -69,6 +70,8 @@
 		9B0549901D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLBaseViewController+NavigationBar.m"; sourceTree = "<group>"; };
 		9B0549921D6EBDE400433AB7 /* MLBaseViewController+Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLBaseViewController+Constructor.h"; sourceTree = "<group>"; };
 		9B0549931D6EBDE400433AB7 /* MLBaseViewController+Constructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLBaseViewController+Constructor.m"; sourceTree = "<group>"; };
+		9B0549951D6EF08C00433AB7 /* MLBaseCell+Shaking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLBaseCell+Shaking.h"; sourceTree = "<group>"; };
+		9B0549961D6EF08C00433AB7 /* MLBaseCell+Shaking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLBaseCell+Shaking.m"; sourceTree = "<group>"; };
 		9B25E5911D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBezierPathControlPointViewController.h; sourceTree = "<group>"; };
 		9B25E5921D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBezierPathControlPointViewController.m; sourceTree = "<group>"; };
 		9B25E5941D6E8D4000A9AFF0 /* MLControlPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLControlPointView.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 			children = (
 				9B0549891D6EA7B700433AB7 /* MLBaseCell.h */,
 				9B05498A1D6EA7B700433AB7 /* MLBaseCell.m */,
+				9B0549951D6EF08C00433AB7 /* MLBaseCell+Shaking.h */,
+				9B0549961D6EF08C00433AB7 /* MLBaseCell+Shaking.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				9B0549941D6EBDE400433AB7 /* MLBaseViewController+Constructor.m in Sources */,
 				9B05498E1D6EAF6F00433AB7 /* MLHomePageCell.m in Sources */,
 				9BD9FFAE1D6D9E2C00F9A691 /* main.m in Sources */,
+				9B0549971D6EF08C00433AB7 /* MLBaseCell+Shaking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

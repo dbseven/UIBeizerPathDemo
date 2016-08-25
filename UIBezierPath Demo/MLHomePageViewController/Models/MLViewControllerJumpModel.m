@@ -7,6 +7,7 @@
 //
 
 #import "MLViewControllerJumpModel.h"
+#import "MLHomePageCell.h"
 
 @implementation MLViewControllerJumpModel
 
@@ -15,6 +16,22 @@
              @"title":@"title",
              @"destination":@"destination"
              };
+}
+
+- (instancetype)init {
+    if (self = [super init]) {
+        
+        [[NSNotificationCenter defaultCenter] addObserver: self
+                                                 selector: @selector(stopAnimationNotificationAction)
+                                                     name: @"ml_stopAnimation"
+                                                   object: nil];
+    }
+    
+    return self;
+}
+
+- (void) stopAnimationNotificationAction {
+    self.selected = NO;
 }
 
 @end

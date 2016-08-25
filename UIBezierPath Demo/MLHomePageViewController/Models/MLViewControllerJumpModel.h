@@ -8,6 +8,8 @@
 
 #import "MLBaseModel.h"
 
+@class MLHomePageCell;
+
 @interface MLViewControllerJumpModel : MLBaseModel
 
 /** 标题 */
@@ -15,5 +17,8 @@
 
 /** 跳转视图控制器 */
 @property (nonatomic, copy) NSString * destination;
+
+/** 选中状态 */
+@property (nonatomic, assign, getter=isSelected) BOOL selected;
 
 @end

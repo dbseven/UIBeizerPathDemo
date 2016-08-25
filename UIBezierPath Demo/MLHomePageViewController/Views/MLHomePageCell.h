@@ -26,4 +26,15 @@ typedef void(^MLHomePageCellDidClick)(MLHomePageCell *cell, MLViewControllerJump
 /** The block of cell click */
 @property (nonatomic, copy) MLHomePageCellDidClick didClick;
 
+
+/**
+ *  Begin Animation
+ */
+- (void) beginAnimationWithAnimation;
+
+/**
+ *  Stop Animation
+ */
+- (void) stopAnimationWithAnimation;
+
 @end

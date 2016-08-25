@@ -10,17 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/** Cell Shaking 动画开始的通知 */
-static NSString *const kMLNotificationName_Shaking_Begin = @"kMLNotificationName_Shaking_Begin";
-
-/** Cell Shaking 动画结束的通知 */
-static NSString *const kMLNotificationName_Shaking_End = @"kMLNotificationName_Shaking_End";
-
 /** The default top margin */
 static CGFloat const kMLBaseCell_Margin_Top = 5.0f;
 
 /** The default bottom margin */
-static CGFloat const kMLBaseCell_Margin_Bottom = 5.0f;
+static CGFloat const kMLBaseCell_Margin_Bottom = 10.0;
 
 /** The default left margin */
 static CGFloat const kMLBaseCell_Margin_Left = 5.0f;
@@ -30,9 +24,6 @@ static CGFloat const kMLBaseCell_Margin_Right = 5.0f;
 
 @interface MLBaseCell : UITableViewCell
 {
-    /** 正在震动 */
-    BOOL _shaking;
-    
     /** Margin Top */
     CGFloat _marginTop;
     
@@ -108,17 +99,6 @@ static CGFloat const kMLBaseCell_Margin_Right = 5.0f;
  *  Setup UI: 子类实现
  */
 - (void) setupUI;
-
-
-/**
- *  被点击之后的震动效果
- */
-- (void) shake;
-
-/**
- *  Shaking 完成之后会调用这个方法, 子类需实现这个方法.
- */
-- (void) shakingComplection;
 
 
 /**

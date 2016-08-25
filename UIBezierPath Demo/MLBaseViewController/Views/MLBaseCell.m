@@ -7,6 +7,7 @@
 //
 
 #import "MLBaseCell.h"
+#import "MLBaseCell+Shaking.h"
 
 @implementation MLBaseCell
 #pragma mark - 构造方法
@@ -78,30 +79,15 @@
         // 3. Register Notifications
         [self registerNotificationCenter];
         
-        // 4. Setup UI
+        // 4. 默认设置 Shaking View
+        self.shakingView = self.viewCellBackground;
+        
+        // 5. Setup UI
         [self setupUI];
     }
     
     return self;
 }
-
-#pragma mark - 初始化方法
-#pragma mark -
-#pragma mark 注册通知
-- (void) registerNotificationCenter {
-    
-    // 1. Shaking 开始
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(shakingBegin)
-                                                 name: kMLNotificationName_Shaking_Begin
-                                               object: nil];
-    // 2. Shaking 结束
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(shakingEnd)
-                                                 name: kMLNotificationName_Shaking_End
-                                               object: nil];
-}
-
 
 #pragma mark - Lazy Load
 #pragma mark -
@@ -112,56 +98,15 @@
         
         _viewCellBackground = [[UIView alloc] init];
         _viewCellBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent: 0.64f];
+        _viewCellBackground.clipsToBounds = NO;
         [self.contentView addSubview: _viewCellBackground];
     }
     
     return _viewCellBackground;
 }
 
-
-#pragma mark - 事件
-#pragma mark -
-#pragma mark 通知事件__震动开始
-- (void) shakingBegin {
-    _shaking = YES;
-}
-
-#pragma mark 通知事件__震动结束
-- (void) shakingEnd {
-    _shaking = NO;
-}
-
 #pragma mark - 公有方法
 #pragma mark -
-#pragma mark 点击后的震动效果
-- (void) shake {
-    
-    if (_shaking) return;
-    _shaking = YES;
-    
-    // 0. 发送通知
-    [[NSNotificationCenter defaultCenter] postNotificationName: kMLNotificationName_Shaking_Begin
-                                                        object: nil];
-    
-    // 1. 设置角度
-    CGFloat angle = M_PI_4/32; // PI/4
-    
-    // 2. 动画
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
-    animation.values = @[@(-angle), @(angle), @(-angle)];
-    animation.duration = 0.16f;
-    animation.repeatCount = 3;
-    animation.delegate = self;
-    
-    // 3. 添加动画
-    [self.viewCellBackground.layer addAnimation:animation forKey:nil];
-}
-
-#pragma mark Shaing 结束后, 调用这个方法, 子类需实现这个方法
-- (void) shakingComplection {
-    
-}
-
 #pragma mark Setup UI
 - (void) setupUI {
     
@@ -171,19 +116,6 @@
 + (CGFloat) cellHeight {
     
     return 44;
-}
-
-#pragma mark - Animation Delegate
-#pragma mark -
-#pragma mark 动画结束
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
-    // 发送通知
-    [[NSNotificationCenter defaultCenter] postNotificationName: kMLNotificationName_Shaking_End
-                                                        object: nil];
-    
-    // Shaking 结束
-    [self shakingComplection];
 }
 
 @end

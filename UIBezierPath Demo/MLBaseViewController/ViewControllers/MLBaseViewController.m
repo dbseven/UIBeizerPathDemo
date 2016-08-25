@@ -30,6 +30,29 @@
     [self configureNavigationBar];
 }
 
+#pragma mark View Will Appear
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    
+    
+}
+
+#pragma mark View Will Disappear
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear: animated];
+    
+    
+}
+
+#pragma mark View Did Appear
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+}
+
+#pragma mark View Did Disappear
+- (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear: animated];
+}
 
 #pragma mark - Lazy Load
 #pragma mark -

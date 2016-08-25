@@ -9,6 +9,7 @@
 #import "MLHomePageViewController.h"
 #import "MLBaseViewController+Constructor.h"
 #import "MLBaseViewController+NavigationBar.h"
+#import "MLBaseCell+Shaking.h"
 #import "MLHomePageModel.h"
 #import "MLHomePageCell.h"
 #import <Mantle/Mantle.h>
@@ -50,6 +51,8 @@
 #pragma mark View Will Appear
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark View Did Appear
@@ -126,6 +129,8 @@
                                                    fromJSONDictionary:modelDict
                                                                 error:&error];
         NSAssert(!error, error.localizedDescription);
+        
+        NSLog(@"%@", [_homePageModel.list firstObject].list);
     }
     
     return _homePageModel;
@@ -168,7 +173,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MLHomePageCell *cell = [self.tableView cellForRowAtIndexPath: indexPath];
-    [cell shake];
+    if ([cell shake]) {
+        [cell beginAnimationWithAnimation];
+    }
 }
 
 
