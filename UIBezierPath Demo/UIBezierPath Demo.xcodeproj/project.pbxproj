@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B25E5991D6E8D4000A9AFF0 /* MLShapeLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5921D6E8D4000A9AFF0 /* MLShapeLayerViewController.m */; };
+		9B25E59A1D6E8D4000A9AFF0 /* MLControlPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5951D6E8D4000A9AFF0 /* MLControlPointView.m */; };
 		9BD9FFAE1D6D9E2C00F9A691 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9FFAD1D6D9E2C00F9A691 /* main.m */; };
 		9BD9FFB11D6D9E2C00F9A691 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9FFB01D6D9E2C00F9A691 /* AppDelegate.m */; };
 		9BD9FFB71D6D9E2C00F9A691 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD9FFB51D6D9E2C00F9A691 /* Main.storyboard */; };
@@ -14,8 +16,6 @@
 		9BD9FFBC1D6D9E2C00F9A691 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BD9FFBA1D6D9E2C00F9A691 /* LaunchScreen.storyboard */; };
 		9BD9FFC71D6D9E2C00F9A691 /* UIBezierPath_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9FFC61D6D9E2C00F9A691 /* UIBezierPath_DemoTests.m */; };
 		9BD9FFD21D6D9E2C00F9A691 /* UIBezierPath_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9FFD11D6D9E2C00F9A691 /* UIBezierPath_DemoUITests.m */; };
-		9BD9FFE31D6D9E4700F9A691 /* MLControlPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9FFE01D6D9E4700F9A691 /* MLControlPointView.m */; };
-		9BD9FFE41D6D9E4700F9A691 /* MLShapeLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD9FFE21D6D9E4700F9A691 /* MLShapeLayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B25E5911D6E8D4000A9AFF0 /* MLShapeLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShapeLayerViewController.h; sourceTree = "<group>"; };
+		9B25E5921D6E8D4000A9AFF0 /* MLShapeLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLShapeLayerViewController.m; sourceTree = "<group>"; };
+		9B25E5941D6E8D4000A9AFF0 /* MLControlPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLControlPointView.h; sourceTree = "<group>"; };
+		9B25E5951D6E8D4000A9AFF0 /* MLControlPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLControlPointView.m; sourceTree = "<group>"; };
 		9BD9FFA91D6D9E2C00F9A691 /* UIBezierPath Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIBezierPath Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD9FFAD1D6D9E2C00F9A691 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9BD9FFAF1D6D9E2C00F9A691 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,10 +54,6 @@
 		9BD9FFCD1D6D9E2C00F9A691 /* UIBezierPath DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UIBezierPath DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD9FFD11D6D9E2C00F9A691 /* UIBezierPath_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBezierPath_DemoUITests.m; sourceTree = "<group>"; };
 		9BD9FFD31D6D9E2C00F9A691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BD9FFDF1D6D9E4700F9A691 /* MLControlPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLControlPointView.h; sourceTree = "<group>"; };
-		9BD9FFE01D6D9E4700F9A691 /* MLControlPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLControlPointView.m; sourceTree = "<group>"; };
-		9BD9FFE11D6D9E4700F9A691 /* MLShapeLayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShapeLayerViewController.h; sourceTree = "<group>"; };
-		9BD9FFE21D6D9E4700F9A691 /* MLShapeLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLShapeLayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +81,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B25E58F1D6E8D4000A9AFF0 /* MLBezierPathViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B25E5901D6E8D4000A9AFF0 /* Controllers */,
+				9B25E5931D6E8D4000A9AFF0 /* Views */,
+			);
+			path = MLBezierPathViewController;
+			sourceTree = "<group>";
+		};
+		9B25E5901D6E8D4000A9AFF0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B25E5911D6E8D4000A9AFF0 /* MLShapeLayerViewController.h */,
+				9B25E5921D6E8D4000A9AFF0 /* MLShapeLayerViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B25E5931D6E8D4000A9AFF0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B25E5941D6E8D4000A9AFF0 /* MLControlPointView.h */,
+				9B25E5951D6E8D4000A9AFF0 /* MLControlPointView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B25E5961D6E8D4000A9AFF0 /* MLHomePageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9B25E5971D6E8D4000A9AFF0 /* Controllers */,
+				9B25E5981D6E8D4000A9AFF0 /* Views */,
+			);
+			path = MLHomePageViewController;
+			sourceTree = "<group>";
+		};
+		9B25E5971D6E8D4000A9AFF0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B25E5981D6E8D4000A9AFF0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9BD9FFA01D6D9E2C00F9A691 = {
 			isa = PBXGroup;
 			children = (
@@ -104,10 +154,8 @@
 		9BD9FFAB1D6D9E2C00F9A691 /* UIBezierPath Demo */ = {
 			isa = PBXGroup;
 			children = (
-				9BD9FFDF1D6D9E4700F9A691 /* MLControlPointView.h */,
-				9BD9FFE01D6D9E4700F9A691 /* MLControlPointView.m */,
-				9BD9FFE11D6D9E4700F9A691 /* MLShapeLayerViewController.h */,
-				9BD9FFE21D6D9E4700F9A691 /* MLShapeLayerViewController.m */,
+				9B25E58F1D6E8D4000A9AFF0 /* MLBezierPathViewController */,
+				9B25E5961D6E8D4000A9AFF0 /* MLHomePageViewController */,
 				9BD9FFAF1D6D9E2C00F9A691 /* AppDelegate.h */,
 				9BD9FFB01D6D9E2C00F9A691 /* AppDelegate.m */,
 				9BD9FFB51D6D9E2C00F9A691 /* Main.storyboard */,
@@ -275,9 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD9FFE41D6D9E4700F9A691 /* MLShapeLayerViewController.m in Sources */,
+				9B25E5991D6E8D4000A9AFF0 /* MLShapeLayerViewController.m in Sources */,
+				9B25E59A1D6E8D4000A9AFF0 /* MLControlPointView.m in Sources */,
 				9BD9FFB11D6D9E2C00F9A691 /* AppDelegate.m in Sources */,
-				9BD9FFE31D6D9E4700F9A691 /* MLControlPointView.m in Sources */,
 				9BD9FFAE1D6D9E2C00F9A691 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +552,7 @@
 				9BD9FFD81D6D9E2C00F9A691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BD9FFD91D6D9E2C00F9A691 /* Build configuration list for PBXNativeTarget "UIBezierPath DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +561,7 @@
 				9BD9FFDB1D6D9E2C00F9A691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9BD9FFDC1D6D9E2C00F9A691 /* Build configuration list for PBXNativeTarget "UIBezierPath DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +570,7 @@
 				9BD9FFDE1D6D9E2C00F9A691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
