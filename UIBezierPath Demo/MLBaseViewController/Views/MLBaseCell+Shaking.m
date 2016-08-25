@@ -27,7 +27,7 @@ static void *ShakingOverKey = &ShakingOverKey;
                                                         object: nil];
     
     // 1. 设置角度
-    CGFloat angle = M_PI_4/32; // PI/4
+    CGFloat angle = M_PI_4/32;
     
     // 2. 动画
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
