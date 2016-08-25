@@ -42,6 +42,4 @@ typedef void(^MLShakingOver)(void);
 @property (nonatomic, copy) MLShakingOver shakingOver;
 
 
-- (void) ml_animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
-
 @end

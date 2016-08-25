@@ -9,8 +9,6 @@
 #import "MLBaseCell+Shaking.h"
 #import <objc/message.h>
 
-static NSString *const kMLShakingCell_Animation_UniqueKey = @"kMLShakingCell_Animation_UniqueKey";
-
 static void *ShakingFlagKey = &ShakingFlagKey;
 static void *ShakingViewKey = &ShakingViewKey;
 static void *ShakingOverKey = &ShakingOverKey;
@@ -37,7 +35,6 @@ static void *ShakingOverKey = &ShakingOverKey;
     animation.duration = 0.16f;
     animation.repeatCount = 3;
     animation.delegate = self;
-    [animation setValue: kMLShakingCell_Animation_UniqueKey forKey: kMLShakingCell_Animation_UniqueKey];
     
     // 3. 添加动画
     [self.shakingView.layer addAnimation:animation forKey: nil];
@@ -117,12 +114,6 @@ static void *ShakingOverKey = &ShakingOverKey;
 #pragma mark -
 #pragma mark 动画结束
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
-    if (![anim valueForKey: kMLShakingCell_Animation_UniqueKey]) {
-        [self ml_animationDidStop: anim
-                         finished: flag];
-        return;
-    }
     
     // 发送通知
     [[NSNotificationCenter defaultCenter] postNotificationName: kMLNotificationName_Shaking_End

@@ -10,8 +10,6 @@
 #import "MLBaseCell+Shaking.h"
 #import "MLViewControllerJumpModel.h"
 
-static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCell_Animation_NormalOverKey";
-
 @interface MLHomePageCell ()
 {
     CGFloat _r;
@@ -54,10 +52,6 @@ static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCe
     NSLog(@"%@: Dealloced", [self class]);
     
     [[NSNotificationCenter defaultCenter] removeObserver: self];
-    [self.keyFrameAnimation_first setValue: @(YES)
-                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
-    [self.keyFrameAnimation_second setValue: @(YES)
-                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
     [self.ml_animationImageView_first.layer removeAllAnimations];
     [self.ml_animationImageView_second.layer removeAllAnimations];
 }
@@ -92,7 +86,7 @@ static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCe
     // 4. 设置 Shaking 回调
     __weak __typeof(&*self)weakSelf = self;
     self.shakingOver = ^(){
-//        !weakSelf.didClick?:weakSelf.didClick(weakSelf, weakSelf.jumpModel);
+        !weakSelf.didClick?:weakSelf.didClick(weakSelf, weakSelf.jumpModel);
     };
 }
 
@@ -215,7 +209,6 @@ static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCe
         _keyFrameAnimation_first.keyTimes = @[@(0.0), @(0.0), @(time1), @(time2), @(time3), @(time3), @(time4), @(time5), @(1.0)];
         _keyFrameAnimation_first.duration = 6.4f;
         _keyFrameAnimation_first.repeatCount = HUGE_VALF;
-        _keyFrameAnimation_first.delegate = self;
     }
     
     return _keyFrameAnimation_first;
@@ -242,7 +235,6 @@ static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCe
         _keyFrameAnimation_second.keyTimes = @[@(0.0), @(0.0), @(time1), @(time2), @(time3), @(time3), @(time4), @(time5), @(1.0)];
         _keyFrameAnimation_second.duration = 6.4f;
         _keyFrameAnimation_second.repeatCount = HUGE_VALF;
-        _keyFrameAnimation_second.delegate = self;
     }
     
     return _keyFrameAnimation_second;
@@ -349,42 +341,28 @@ static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCe
     // 2. 设置选中模式
     self.jumpModel.selected = YES;
     
-    self.contentView.backgroundColor = [UIColor orangeColor];
+    // 3. 添加动画
+    [self.ml_animationImageView_first.layer  addAnimation: self.keyFrameAnimation_first
+                                                   forKey: @"ml_animationImageView_first"];
+    [self.ml_animationImageView_second.layer addAnimation: self.keyFrameAnimation_second
+                                                   forKey: @"ml_animationImageView_second"];
+    [self.ml_animationImageView_first startAnimating];
+    [self.ml_animationImageView_second startAnimating];
     
-//    // 3. 添加动画
-//    [self.ml_animationImageView_first.layer  addAnimation: self.keyFrameAnimation_first
-//                                                   forKey: @"ml_animationImageView_first"];
-//    [self.ml_animationImageView_second.layer addAnimation: self.keyFrameAnimation_second
-//                                                   forKey: @"ml_animationImageView_second"];
-//    [self.keyFrameAnimation_first setValue: @(NO)
-//                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
-//    [self.keyFrameAnimation_second setValue: @(NO)
-//                                     forKey: kMLHomePageCell_Animation_NormalOverKey];
-//    [self.ml_animationImageView_first startAnimating];
-//    [self.ml_animationImageView_second startAnimating];
-//    
-//    // 4. 开始动画
-//    self.ml_animationImageView_first.alpha = 1.0;
-//    self.ml_animationImageView_second.alpha = 1.0;
+    // 4. 开始动画
+    self.ml_animationImageView_first.alpha = 1.0;
+    self.ml_animationImageView_second.alpha = 1.0;
 }
 
 #pragma mark Stop Animation
 - (void) stopAnimation {
     
-    
-    self.contentView.backgroundColor = [UIColor clearColor];
-    
-//    self.ml_animationImageView_first.alpha = 0.0f;
-//    self.ml_animationImageView_second.alpha = 0.0f;
-//    
-//    [self.keyFrameAnimation_first setValue: @(YES)
-//                                    forKey: kMLHomePageCell_Animation_NormalOverKey];
-//    [self.keyFrameAnimation_second setValue: @(YES)
-//                                     forKey: kMLHomePageCell_Animation_NormalOverKey];
-//    [self.ml_animationImageView_first.layer removeAllAnimations];
-//    [self.ml_animationImageView_second.layer removeAllAnimations];
-//    [self.ml_animationImageView_first stopAnimating];
-//    [self.ml_animationImageView_second stopAnimating];
+    self.ml_animationImageView_first.alpha = 0.0f;
+    self.ml_animationImageView_second.alpha = 0.0f;
+    [self.ml_animationImageView_first.layer removeAllAnimations];
+    [self.ml_animationImageView_second.layer removeAllAnimations];
+    [self.ml_animationImageView_first stopAnimating];
+    [self.ml_animationImageView_second stopAnimating];
 }
 
 #pragma mark Setup Cell Background View
@@ -400,13 +378,6 @@ static NSString *const kMLHomePageCell_Animation_NormalOverKey = @"kMLHomePageCe
         
         // 2.
         self.viewCellBackground.layer.mask = shapeLayer;
-    }
-}
-
-- (void)ml_animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
-    if (![[anim valueForKey: kMLHomePageCell_Animation_NormalOverKey] boolValue]) {
-        [self beginAnimation];
     }
 }
 
