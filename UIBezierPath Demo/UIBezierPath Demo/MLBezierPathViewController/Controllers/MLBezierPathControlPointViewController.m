@@ -6,10 +6,9 @@
 //  Copyright © 2016年 CristianoRLong. All rights reserved.
 //
 
-#import "MLShapeLayerViewController.h"
-#import "MLControlPointView.h"
+#import "MLBezierPathControlPointViewController.h"
 
-@interface MLShapeLayerViewController ()
+@interface MLBezierPathControlPointViewController ()
 
 /** 开始点到控制点的虚线 Shape Layer */
 @property (nonatomic, strong) CAShapeLayer *dashedLineShapeLayer_BeginPoint;
@@ -35,15 +34,12 @@
 /** End Point */
 @property (nonatomic, strong) MLControlPointView *endPoint;
 
-/** Control Pointes */
-@property (nonatomic, strong) NSMutableArray<MLControlPointView *> *controlPoints;
-
 /** Add Button */
 @property (nonatomic, strong) UIButton *addButton;
 
 @end
 
-@implementation MLShapeLayerViewController
+@implementation MLBezierPathControlPointViewController
 #pragma mark - ViewController Life Circle
 #pragma mark -
 #pragma mark View Did Load
@@ -128,17 +124,6 @@
     }
     
     return _addButton;
-}
-
-#pragma mark Lazy Control Points
-- (NSMutableArray<MLControlPointView *> *)controlPoints {
-    
-    if (!_controlPoints) {
-        
-        _controlPoints = [[NSMutableArray alloc] init];
-    }
-    
-    return _controlPoints;
 }
 
 #pragma mark Lazy Shape Layer
@@ -265,7 +250,7 @@
 }
 
 
-#pragma mark - Private Methods
+#pragma mark - Public Methods
 #pragma mark -
 #pragma mark Remove Control Point
 - (void) removeControlPoint:(MLControlPointView *)controlPointView {
@@ -279,6 +264,7 @@
     // 3. 刷新 UI
     [self configureBezierPath];
 }
+
 
 #pragma mark Configure Bezier Path
 - (void) configureBezierPath {

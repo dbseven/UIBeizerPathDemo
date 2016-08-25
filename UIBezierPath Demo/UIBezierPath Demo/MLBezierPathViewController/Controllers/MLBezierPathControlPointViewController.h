@@ -6,8 +6,8 @@
 //  Copyright © 2016年 CristianoRLong. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MLBaseViewController.h"
 
-@interface MLShapeLayerViewController : UIViewController
+@interface MLBezierPathControlPointViewController : MLBaseViewController
 
 @end
