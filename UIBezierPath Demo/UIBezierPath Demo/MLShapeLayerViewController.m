@@ -345,11 +345,13 @@
                                              handler:^(UIAlertAction * _Nonnull action) {
                                                  
                                                  NSArray<UITextField *> *textFields = alert.textFields;
-                                                 CGFloat x = [[textFields firstObject].text floatValue];
-                                                 CGFloat y = [[textFields lastObject].text floatValue];
+                                                 NSString *textX = [textFields firstObject].text;
+                                                 NSString *textY = [textFields firstObject].text;
+                                                 CGFloat x = [textX floatValue];
+                                                 CGFloat y = [textY floatValue];
                                                  
-                                                 if (x > kWidth_ScreenWidth || x < 0) return;
-                                                 if (y > kHeight_ScreenHeight || y < 0) return;
+                                                 if (x > kWidth_ScreenWidth || x < 0 || !textX.length) return;
+                                                 if (y > kHeight_ScreenHeight || y < 0 || !textY.length) return;
                                                  
                                                  controlPointView.center = CGPointMake(x, y);
                                                  controlPointView.controlPoint = controlPointView.center;
