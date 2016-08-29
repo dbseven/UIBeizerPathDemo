@@ -104,6 +104,7 @@
 
 #pragma mark Configure Navigation Bar
 - (void) configureNavigationBar {
+    [super configureNavigationBar];
     
     [self addNavigationTitle: @"Spring Animation"];
 }
