@@ -17,6 +17,19 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>title</key>
+			<string>UIBezierPath + CADisplayLink</string>
+			<key>list</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Spring Animation View</string>
+					<key>destination</key>
+					<string>MLBezierPathAnimationViewController_01</string>
+				</dict>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>
