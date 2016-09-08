@@ -80,14 +80,6 @@ static NSString *const kMLAnimationNameKey = @"kMLAnimationName";
     NSLog(@"%@: Dealloced", [self class]);
 }
 
-- (void)didMoveToWindow {
-    
-}
-
-- (void) didMoveToSuperview {
-    
-}
-
 
 #pragma mark - Basic Setup Methods
 #pragma mark -
@@ -108,7 +100,7 @@ static NSString *const kMLAnimationNameKey = @"kMLAnimationName";
 - (void) configUI {
     
     // 1. Background Color
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent: 0.64f];
     
     // 2. Config BezierPath
     [self configBezierPath];
@@ -149,6 +141,7 @@ static NSString *const kMLAnimationNameKey = @"kMLAnimationName";
         _animationLayer.anchorPoint = CGPointMake(0.5, 0.5);
         _animationLayer.position = CGPointMake(self.frame.size.width*0.5, self.frame.size.height*0.5);
         _animationLayer.strokeColor = [UIColor redColor].CGColor;
+        _animationLayer.fillColor = [UIColor clearColor].CGColor;
         _animationLayer.lineWidth = 4;
         _animationLayer.lineCap = kCALineCapRound;
         _animationLayer.strokeStart = _strokeStart;

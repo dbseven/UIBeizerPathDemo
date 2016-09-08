@@ -84,6 +84,9 @@
     
     // 1. Animation View
     [self.view addSubview: self.animationView];
+    
+    // 2. Background Color
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 #pragma mark Configure Navigation Bar
