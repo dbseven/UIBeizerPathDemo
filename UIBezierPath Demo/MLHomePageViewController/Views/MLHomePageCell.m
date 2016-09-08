@@ -209,6 +209,7 @@
         _keyFrameAnimation_first.keyTimes = @[@(0.0), @(0.0), @(time1), @(time2), @(time3), @(time3), @(time4), @(time5), @(1.0)];
         _keyFrameAnimation_first.duration = 6.4f;
         _keyFrameAnimation_first.repeatCount = HUGE_VALF;
+        _keyFrameAnimation_first.rotationMode = kCAAnimationRotateAuto;
     }
     
     return _keyFrameAnimation_first;

@@ -17,6 +17,8 @@
 		9B0549911D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549901D6EBD4100433AB7 /* MLBaseViewController+NavigationBar.m */; };
 		9B0549941D6EBDE400433AB7 /* MLBaseViewController+Constructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549931D6EBDE400433AB7 /* MLBaseViewController+Constructor.m */; };
 		9B0549971D6EF08C00433AB7 /* MLBaseCell+Shaking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0549961D6EF08C00433AB7 /* MLBaseCell+Shaking.m */; };
+		9B23C7281D81529000E94B8C /* MLBezierPathAnimationViewController_02.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B23C7271D81529000E94B8C /* MLBezierPathAnimationViewController_02.m */; };
+		9B23C72B1D81530F00E94B8C /* MLLoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B23C72A1D81530F00E94B8C /* MLLoadingAnimationView.m */; };
 		9B25E5991D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5921D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m */; };
 		9B25E59A1D6E8D4000A9AFF0 /* MLControlPointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E5951D6E8D4000A9AFF0 /* MLControlPointView.m */; };
 		9B25E59F1D6E91F700A9AFF0 /* MLBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25E59E1D6E91F700A9AFF0 /* MLBaseViewController.m */; };
@@ -74,6 +76,10 @@
 		9B0549931D6EBDE400433AB7 /* MLBaseViewController+Constructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLBaseViewController+Constructor.m"; sourceTree = "<group>"; };
 		9B0549951D6EF08C00433AB7 /* MLBaseCell+Shaking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLBaseCell+Shaking.h"; sourceTree = "<group>"; };
 		9B0549961D6EF08C00433AB7 /* MLBaseCell+Shaking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLBaseCell+Shaking.m"; sourceTree = "<group>"; };
+		9B23C7261D81529000E94B8C /* MLBezierPathAnimationViewController_02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBezierPathAnimationViewController_02.h; sourceTree = "<group>"; };
+		9B23C7271D81529000E94B8C /* MLBezierPathAnimationViewController_02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBezierPathAnimationViewController_02.m; sourceTree = "<group>"; };
+		9B23C7291D81530F00E94B8C /* MLLoadingAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLoadingAnimationView.h; sourceTree = "<group>"; };
+		9B23C72A1D81530F00E94B8C /* MLLoadingAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLoadingAnimationView.m; sourceTree = "<group>"; };
 		9B25E5911D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBezierPathControlPointViewController.h; sourceTree = "<group>"; };
 		9B25E5921D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBezierPathControlPointViewController.m; sourceTree = "<group>"; };
 		9B25E5941D6E8D4000A9AFF0 /* MLControlPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLControlPointView.h; sourceTree = "<group>"; };
@@ -177,6 +183,41 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9B23C7221D81526200E94B8C /* MLBezierPathViewController_02 */ = {
+			isa = PBXGroup;
+			children = (
+				9B23C7231D81526200E94B8C /* Controllers */,
+				9B23C7241D81526200E94B8C /* Models */,
+				9B23C7251D81526200E94B8C /* Views */,
+			);
+			path = MLBezierPathViewController_02;
+			sourceTree = "<group>";
+		};
+		9B23C7231D81526200E94B8C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B23C7261D81529000E94B8C /* MLBezierPathAnimationViewController_02.h */,
+				9B23C7271D81529000E94B8C /* MLBezierPathAnimationViewController_02.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B23C7241D81526200E94B8C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9B23C7251D81526200E94B8C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B23C7291D81530F00E94B8C /* MLLoadingAnimationView.h */,
+				9B23C72A1D81530F00E94B8C /* MLLoadingAnimationView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9B25E58F1D6E8D4000A9AFF0 /* MLBezierPathViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				9B8558191D73E4BF00F50CDE /* MLBezierPathViewController_01 */,
+				9B23C7221D81526200E94B8C /* MLBezierPathViewController_02 */,
 			);
 			path = MLBezierPathAnimationViewController;
 			sourceTree = "<group>";
@@ -438,6 +480,7 @@
 		9BD9FFA11D6D9E2C00F9A691 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ML;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = CristianoRLong;
 				TargetAttributes = {
@@ -556,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B25E59F1D6E91F700A9AFF0 /* MLBaseViewController.m in Sources */,
+				9B23C72B1D81530F00E94B8C /* MLLoadingAnimationView.m in Sources */,
 				9B0549801D6EA1B800433AB7 /* MLHomePageModel.m in Sources */,
 				9B0549831D6EA1F000433AB7 /* MLHomePageSectionModel.m in Sources */,
 				9B25E5991D6E8D4000A9AFF0 /* MLBezierPathControlPointViewController.m in Sources */,
@@ -569,6 +613,7 @@
 				9B05498B1D6EA7B700433AB7 /* MLBaseCell.m in Sources */,
 				9B8558221D73E60500F50CDE /* MLSpringView.m in Sources */,
 				9B0549941D6EBDE400433AB7 /* MLBaseViewController+Constructor.m in Sources */,
+				9B23C7281D81529000E94B8C /* MLBezierPathAnimationViewController_02.m in Sources */,
 				9B05498E1D6EAF6F00433AB7 /* MLHomePageCell.m in Sources */,
 				9BD9FFAE1D6D9E2C00F9A691 /* main.m in Sources */,
 				9B0549971D6EF08C00433AB7 /* MLBaseCell+Shaking.m in Sources */,

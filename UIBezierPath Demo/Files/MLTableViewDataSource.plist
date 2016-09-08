@@ -28,6 +28,12 @@
 					<key>destination</key>
 					<string>MLBezierPathAnimationViewController_01</string>
 				</dict>
+				<dict>
+					<key>title</key>
+					<string>Loading Animation View</string>
+					<key>destination</key>
+					<string>MLBezierPathAnimationViewController_02</string>
+				</dict>
 			</array>
 		</dict>
 	</array>
